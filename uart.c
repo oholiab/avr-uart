@@ -1,5 +1,6 @@
 #include <avr/io.h>
 #include <stdio.h>
+#include "uart.h"
 
 #if !defined(F_CPU)
 #define F_CPU 16000000UL
