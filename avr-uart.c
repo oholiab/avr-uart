@@ -1,6 +1,7 @@
 #include <avr/io.h>
 #include <stdio.h>
-#include "uart.h"
+#include <util/setbaud.h>
+#include "avr-uart.h"
 
 #if !defined(F_CPU)
 #define F_CPU 16000000UL
@@ -8,7 +9,6 @@
 
 #define BAUD 9600
 
-#include <util/setbaud.h>
 #define THIS_UBRR (((F_CPU/16)/BAUD)-1)
 
 void uart_init(void){
