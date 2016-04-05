@@ -1,7 +1,9 @@
 #include <avr/io.h>
 #include <stdio.h>
 
+#if !defined(F_CPU)
 #define F_CPU 16000000UL
+#endif
 
 #define BAUD 9600
 
