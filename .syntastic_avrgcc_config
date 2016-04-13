@@ -1,0 +1,6 @@
+-Os
+-g
+-Wall
+-mmcu=atmega32u4
+-I
+/usr/avr/include
