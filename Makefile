@@ -38,14 +38,17 @@ CFLAGS += $(foreach dep,$(DEPS), -I./$(dep))
 #Uncomment to enable verbose
 #CFLAGS+= -v
 TARGETS=$(PROGNAME).hex
+OBJECTS=$(PROGNAME).o
 
-default: $(TARGETS)
+default: $(OBJECTS)
 
 %.hex: %.c .dependencies
-	$(CC) -Os $(CFLAGS) $(DEFS) -c $*.c
 	$(CC) $(CFLAGS) $(DEFS) -o $*.elf $*.o
 	avr-objcopy -O ihex $*.elf $*.hex
 	rm $*.o $*.elf
+
+%.o: %.c .dependencies
+	$(CC) -Os $(CFLAGS) $(DEFS) -c $*.c
 
 flash: | $(FLASHER) $(PROGNAME).hex
 	echo $(MCU)
